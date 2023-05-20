@@ -5,7 +5,7 @@
 
 body {
     margin: 0;
-    min-height: 100%;
+    height: 100%;
 }
 
 html {
@@ -40,7 +40,7 @@ h4,
 h5,
 h6 {
     margin-bottom: 10px;
-    font-weight: 800;
+    font-weight: 600;
 }
 
 h1 {
@@ -53,8 +53,6 @@ h1 {
     text-align: center;
     text-transform: uppercase;
     color: #FFFFFF;
-    width: 1152px;
-    height: 53px;
 }
 
 p {
@@ -62,7 +60,7 @@ p {
     font-family: 'Strong Concrete', sans-serif;
     font-style: normal;
     font-weight: 100;
-    font-size: 42.7401px;
+    font-size: 32.7401px;
     line-height: 42px;
     text-align: center;
     text-transform: uppercase;
@@ -70,7 +68,6 @@ p {
 }
 
 body {
-    color: #333;
     background-color: rgba(0, 0, 0, 0.98);
     font-family: Questrial, sans-serif;
     font-size: 14px;
@@ -121,7 +118,6 @@ sub {
 
 .w-nav {
     z-index: 1000;
-    background: #ddd;
     position: relative;
 }
 
@@ -142,6 +138,10 @@ sub {
     margin-right: auto;
 }
 
+.scroll-lock {
+    overflow: hidden;
+}
+
 .w-container:before,
 .w-container:after {
     content: " ";
@@ -154,14 +154,21 @@ sub {
 }
 
 .w-nav-menu {
-    float: right;
-    position: relative;
+    /*float: right;
+    position: relative;*/
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    z-index: 999;
 }
 
 [data-nav-menu-open] {
     text-align: center;
     min-width: 200px;
-    background: #c8c8c8;
+    background-color: #c8c8c8;
     position: absolute;
     top: 100%;
     left: 0;
@@ -173,6 +180,11 @@ sub {
 .w--nav-link-open {
     display: block;
     position: relative;
+}
+
+.nav-fixed-size {
+    position: fixed;
+    overflow-y: auto;
 }
 
 .w-nav-overlay {
@@ -215,7 +227,6 @@ sub {
     float: right;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
-    tap-highlight-color: transparent;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
@@ -232,6 +243,10 @@ sub {
 .w-nav-button.w--open {
     color: #fff;
     background-color: #c8c8c8;
+}
+
+.w--open .w-nav-menu {
+    display: block;
 }
 
 .w-nav[data-collapse="all"] .w-nav-menu {
@@ -264,6 +279,7 @@ sub {
     bottom: auto;
     left: 0%;
     right: 0%;
+    background-color: #050A11;
 }
 
 .header-wrapper.no-fixed {
@@ -319,6 +335,7 @@ sub {
 .hamburger-menu-wrapper {
     padding: 0;
     transition: transform 0.3s;
+    display: none;
 }
 
 .hamburger-menu-wrapper:hover {
@@ -331,19 +348,19 @@ sub {
 
 .header-hamburger-desktop-wrapper {
     z-index: 900;
-    min-height: 100vh;
-    background-color: #fff;
-    border-top: 1px solid #eff0f6;
-    border-bottom: 1px solid #eff0f6;
+    max-height: 100vh;
+    background-color: #050A11;
     align-items: center;
     padding: 44px 24px;
     display: flex;
     position: absolute;
     overflow: hidden;
+    border: 1px solid #ddd;
+    width: 99.5%;
 }
 
 .container-default-center {
-    height: 560px;
+    min-height: 99vh;
     max-width: 1218px;
     justify-content: center;
     align-items: center;
@@ -352,6 +369,7 @@ sub {
     padding-left: 24px;
     padding-right: 24px;
     overflow: auto;
+    border: 1px solid #fff;
 }
 
 .flex-horizontal {
@@ -425,8 +443,7 @@ sub {
 }
 
 .nav-link {
-    color: #000;
-    border-bottom: 1px solid #000;
+    color: #FFFFFF;
     margin-bottom: 25px;
     padding-bottom: 10px;
     font-size: 40px;
@@ -464,6 +481,46 @@ sub {
     max-width: 1152px;
     text-align: center;
     position: relative;
+}
+
+.content-section {
+    height: 689px;
+    background-color: #FFFFFF;
+}
+
+.cases-section {
+    height: 1088px;
+    background-color: #FFFFFF;
+    border: 1px solid rgb(151, 151, 151);
+}
+
+.cases-section-header {
+    height: 248px;
+    border: 1px solid gray;
+}
+
+.carousel-container {
+    background-color: #D83701;
+    height: 720px;
+    left: -166px;
+    top: 248px;
+}
+
+.services-section {
+    height: 552px;
+    background-color: #FFFFFF;
+    border: 1px solid rgb(151, 151, 151);
+}
+
+.team-section {
+    height: 713px;
+    background-color: #FFFFFF;
+    border: 1px solid rgb(151, 151, 151);
+}
+
+footer {
+    background-color: #000;
+    height: 430px;
 }
 
 .mb-bottom---45px {
@@ -506,9 +563,7 @@ sub {
     }
     .header-hamburger-desktop-wrapper {
         min-height: auto;
-        background-color: #fff;
-        border-top: 1px solid #eff0f6;
-        border-bottom: 1px solid #eff0f6;
+        background-color: #050A11;
         padding-left: 0;
         padding-right: 0;
     }

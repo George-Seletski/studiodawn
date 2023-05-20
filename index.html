@@ -15,56 +15,133 @@
             }
         });
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body>
     <div class="header-wrapper w-nav" data-duration="400" data-collapse="all">
         <div class="container-default w-container">
-            <a href="index.html" aria-current="page" class="header-logo-link w-nav-brand w--current">
-                <img src="" alt="STUDIODAWN" class="header-logo">
-            </a>
-        </div>
-        <div class="header-right-col">
-            <nav role="navigation" class="header-hamburger-desktop-wrapper w-nav-menu">
-                <div class="container-default-center">
-                    <!--<div class="flex-horizontal gap-40px align---center">
-                        <div class="menu-title">Menu</div>
-                        <div class="border"></div>
-                    </div>-->
-                    <ul role="list" class="nav-list">
-                        <li class="nav-item">
-                            <a href="#about" class="nav-link">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#cases" class="nav-link">Cases</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#contact" class="nav-link">Contact us</a>
-                        </li>
-
-                    </ul>
+            <div class="header-content-wrapper">
+                <a href="index.html" aria-current="page" class="header-logo-link w-nav-brand w--current">
+                    <img src="" alt="STUDIODAWN" class="header-logo">
+                </a>
+                <div class="hamburger-menu-wrapper w-nav-button">
+                    <div class="hamburger-menu-bar-top"></div>
+                    <div class="hamburger-menu-bar-bottom"></div>
                 </div>
-            </nav>
-            <div class="hamburger-menu-wrapper w-nav-button">
-                <div class="hamburger-menu-bar-top"></div>
-                <div class="hamburger-menu-bar-bottom"></div>
+            </div>
+            <div class="header-right-col">
+                <nav role="navigation" class="header-hamburger-desktop-wrapper w-nav-menu ">
+                    <div class="container-default-center">
+                        <!--<div class="flex-horizontal gap-40px align---center">
+                            <div class="menu-title">Menu</div>
+                            <div class="border"></div>
+                        </div>-->
+                        <ul role="list" class="nav-list">
+                            <li class="nav-item">
+                                <a href="#about" class="nav-link">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/#cases" class="nav-link">Cases</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/#contact" class="nav-link">Contact us</a>
+                            </li>
+                        </ul>
+                        <!--<div class="container-default-center-left">
+                            <div class="w-nav-menu-info">
+                                <h1>GET IN TOUCH.</h1>
+                                <span>
+                                    <p>228 Nelson's Crescent New </p>
+                                    <p>Westminster, BC V3L 3E3</p>
+                                    <p>hello@dawnstudio.com</p>
+                                    <p>+1 (236) 992-5735</p>
+                                </span>
+                            </div>
+                        </div>
+                    </div>-->
+
+
+                </nav>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="header-section">
-        <div class="header-section-content">
-            <div class="mb-bottom---45px">
-                <p>Let Studio Dawn</p>
-            </div>
-            <div>
+
+        <div class="header-section">
+            <div class="header-section-content">
+                <div class="mb-bottom---45px">
+                    <p>Let Studio Dawn</p>
+                </div>
+
                 <h1 class="mb-bottom---60px">
                     <span class="mb-bottom---10px">illuminate your brand's story.</span>
-                    <span class="mb-bottom---10px"> Together, we'll make it shine.</span>
+                    <span> Together, we'll make it shine.</span>
                 </h1>
+
             </div>
         </div>
-    </div>
+        <div class="content-section">
+
+        </div>
+        <div class="cases-section" id="cases">
+            <div class="cases-section-header">
+                <div class="cases-logo">
+                    <h1>
+                        CASES.
+                    </h1>
+                </div>
+                <div class="cases-btn"></div>
+            </div>
+            <div class="carousel-container">
+
+            </div>
+        </div>
+        <div class="services-section" id="services">
+
+        </div>
+        <div class="team-section" id="team">
+
+        </div>
+        <footer id="contact">
+
+        </footer>
 </body>
 
+<script>
+    $(document).ready(function() {
+        $('.hamburger-menu-wrapper').click(function() {
+            var $navMenu = $('.w-nav-menu');
+            $navMenu.toggle();
+            $(this).toggleClass('w--open');
+
+            // Disable scroll when menu is open
+            if ($navMenu.is(':visible')) {
+                disableScroll();
+            } else {
+                enableScroll();
+            }
+        });
+    });
+
+    // Disable scroll
+    function disableScroll() {
+        // Get the current scroll position
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        var scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+        // Save the current scroll position and add scroll-lock styles
+        window.onscroll = function() {
+            window.scrollTo(scrollLeft, scrollTop);
+        };
+        document.body.classList.add('scroll-lock');
+    }
+
+    // Enable scroll
+    function enableScroll() {
+        window.onscroll = null;
+        document.body.classList.remove('scroll-lock');
+    }
+</script>
 
 </html>
