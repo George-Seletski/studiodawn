@@ -40,7 +40,7 @@ h4,
 h5,
 h6 {
     margin-bottom: 10px;
-    font-weight: 600;
+    font-weight: 800;
 }
 
 h1 {
@@ -481,6 +481,7 @@ sub {
     max-width: 1152px;
     text-align: center;
     position: relative;
+    bottom: 7.5em;
 }
 
 .content-section {
@@ -499,6 +500,21 @@ sub {
     border: 1px solid gray;
 }
 
+.cases-logo {
+    width: 50%;
+    height: 100%;
+    margin: 0;
+}
+
+#cases-logo,
+#service-logo {
+    color: #000 !important;
+}
+
+.cases-btn {
+    width: 50%;
+}
+
 .carousel-container {
     background-color: #D83701;
     height: 720px;
@@ -509,6 +525,15 @@ sub {
 .services-section {
     height: 552px;
     background-color: #FFFFFF;
+    border: 1px solid rgb(151, 151, 151);
+}
+
+.service-section-header {
+    height: 140px;
+}
+
+.service-logo {
+    width: 50%;
     border: 1px solid rgb(151, 151, 151);
 }
 
