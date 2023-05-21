@@ -74,6 +74,19 @@ body {
     line-height: 20px;
 }
 
+
+/* For Chrome, Safari, and Opera */
+
+::-webkit-scrollbar {
+    width: 1px;
+    /* Adjust the width as desired */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    /* Change the color as desired */
+}
+
 a {
     color: #fff;
     font-size: 18px;
@@ -274,7 +287,7 @@ sub {
     background-color: transparent;
     padding-top: 32px;
     padding-bottom: 32px;
-    position: fixed;
+    /*position: fixed;*/
     top: 0%;
     bottom: auto;
     left: 0%;
@@ -593,7 +606,7 @@ footer {
         padding-right: 0;
     }
     .hamburger-menu-wrapper {
-        order: -1;
+        /*order: -1;*/
         transition: transform 0.3s;
     }
     .hamburger-menu-wrapper:hover {
