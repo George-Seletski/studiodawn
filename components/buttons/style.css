@@ -11,11 +11,12 @@ body {
     height: 160px;
 }
 
-.left-flexbox {
+.flexbox-header {
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 1px solid;
 }
 
 .button-box {
@@ -24,10 +25,10 @@ body {
     align-items: center;
     position: absolute;
     width: 119.28px;
-    height: 31px;
+    height: 32px;
     right: 5%;
     top: 5%;
-    border: 5px solid #000;
+    border: 2px solid #000;
     border-radius: 20px;
     text-align: center;
     cursor: pointer;
@@ -38,19 +39,19 @@ body {
     content: '';
     position: absolute;
     width: 60%;
-    border-bottom: 5px solid #fff;
+    border-bottom: 2px solid #fff;
     z-index: 2;
-    top: -5px;
-    height: 31px;
-    border-top: 5px solid #fff;
+    top: -2px;
+    height: 32px;
+    border-top: 2px solid #fff;
     background-color: transparent;
 }
 
 .button-box:hover:before {
     background-color: black;
-    border-top: 5px solid #000;
-    border-bottom: 5px solid #000;
-    transition: background-color 0.3s ease;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+    transition: background-color 0.2s ease;
 }
 
 .button-box:hover {
@@ -62,12 +63,12 @@ body {
 .button-box.clicked {
     background-color: grey;
     color: #fff;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.3s ease;
 }
 
 .button-box.clicked:before {
-    border-top: 5px solid grey;
-    border-bottom: 5px solid grey;
+    border-top: 2px solid grey;
+    border-bottom: 2px solid grey;
     transition: background-color 0.2s ease;
 }
 
@@ -78,9 +79,9 @@ body {
 
 .button-box.clicked:hover:before {
     background-color: #4d4c4c;
-    border-top: 5px solid #4d4c4c;
-    border-bottom: 5px solid #4d4c4c;
-    transition: background-color 0.23s ease;
+    border-top: 2px solid #4d4c4c;
+    border-bottom: 2px solid #4d4c4c;
+    transition: background-color 0.2s ease;
 }
 
 .button-content {
@@ -104,12 +105,18 @@ body {
     text-transform: uppercase;
 }
 
-.right-flexbox {
+.col-2 {
     flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #000;
+    /* Take up remaining space */
+    width: 50%;
+    /* Occupy 50% of the flexbox-content width */
+}
+
+.col-2 {
+    flex: 1;
+    /* Take up remaining space */
+    width: 50%;
+    /* Occupy 50% of the flexbox-content width */
 }
 
 
@@ -119,10 +126,7 @@ body {
     .flex-container {
         flex-wrap: wrap;
     }
-    .left-flexbox {
-        width: 50%;
-    }
-    .right-flexbox {
+    .flexbox-header {
         width: 50%;
     }
     .logo-box,
@@ -135,8 +139,7 @@ body {
 }
 
 @media (max-width: 480px) {
-    .left-flexbox,
-    .right-flexbox {
+    .flexbox-header {
         width: 100%;
     }
     .button-box {
