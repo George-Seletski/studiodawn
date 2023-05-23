@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .padding-global {
+        padding-right: 5%;
+        padding-left: 5%;
+    }
+    
+    .container-large {
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    
+    .padding-section-large {
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        /*border-radius: 12px;*/
+    }
+    
+    .video-box-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)), url("/images/video-thumbnail.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .video-box {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border-radius: 12px;
+    }
+    
+    .video-box.shadow-medium {
+        width: 100%;
+        height: 500px;
+    }
+    
+    .video-overlay-layer {
+        position: absolute;
+        left: 0%;
+        top: 0%;
+        right: 0%;
+        bottom: 0%;
+        z-index: 1;
+        border-style: solid;
+        border-width: 2px;
+        border-color: #b4cece;
+        border-radius: 12px;
+        background-image: linear-gradient(0deg, rgba(5, 10, 17, 0.85), rgba(5, 10, 17, 0.85)), url("../639bb4e11a3ff940f6e09e68_Gradient.jpg");
+        background-position: 0px 0px, 50% 50%;
+        background-size: auto, cover;
+    }
+    
+    .box-play-icon {
+        position: absolute;
+        z-index: 2;
+        width: 8rem;
+        height: 8rem;
+        border-radius: 100%;
+        background-color: hsla(0, 0%, 100%, 0.1);
+        backdrop-filter: saturate(150%) blur(12px);
+        color: #fff;
+    }
+    
+    .box-play-video {
+        position: absolute;
+        width: 587px;
+        height: 53px;
+        font-family: 'Strong Concrete';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 33.8587px;
+        line-height: 53px;
+        /* identical to box height */
+        text-align: center;
+        text-transform: uppercase;
+        color: #FFFFFF;
+    }
+    
+    .blurb-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .blurb-component {
+        display: grid;
+        justify-items: center;
+        align-items: start;
+        grid-auto-columns: 1fr;
+        grid-column-gap: 3rem;
+        grid-row-gap: 4rem;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+    }
+    
+    @media screen and (max-width: 991px) {
+        /* CSS rules for screens with max width 991px */
+        .video-box.shadow-medium {
+            height: 400px;
+        }
+        .box-play-video {
+            width: 80%;
+            font-size: 32px;
+            line-height: 40px;
+        }
+    }
+    
+    @media screen and (max-width: 767px) {
+        /* CSS rules for screens with max width 767px */
+        .video-box.shadow-medium {
+            height: 300px;
+        }
+        .box-play-video {
+            width: 90%;
+            font-size: 24px;
+            line-height: 30px;
+        }
+    }
+    
+    @media screen and (max-width: 479px) {
+        /* CSS rules for screens with max width 479px */
+        .video-box.shadow-medium {
+            height: 200px;
+        }
+        .box-play-video {
+            width: 95%;
+            font-size: 18px;
+            line-height: 24px;
+        }
+    }
+</style>
+
+<body>
+    <div class="padding-global">
+        <div class="container-large">
+            <div class="padding-section-large">
+                <a href="#" class="video-box shadow-medium w-inline-block w-box">
+                    <div class="video-box-image"></div>
+                    <!--<div class="video-overlay-layer"></div>-->
+                    <!--<img src="/images/62cf9368eace6116d0cde0a1_play-icon.svg" loading="lazy" alt="Play icon" class="box-play-icon">-->
+                    <div class="box-play-video">
+                        <h1>play SHOWEEL</h1>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

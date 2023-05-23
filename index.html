@@ -84,7 +84,27 @@
             </div>
         </div>
         <div class="content-section">
+            <div class="container" id='tickerListWrapper'>
+                <div class="ticker__list">
+                    Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9 Test-10 Test-11 Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9 Test-10 Test-11 Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9 Test-10 Test-11 Test-2 Test-3 Test-4 Test-5 Test-6
+                    Test-7 Test-8 Test-9 Test-10 Test-11 Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9 Test-10 Test-11 Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9 Test-10 Test-11 Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9
+                    Test-10 Test-11 Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9 Test-10 Test-11&nbsp
+                </div>
+            </div>
+            <div class="video-content">
+                <div class="video-thumbnail">
 
+                </div>
+            </div>
+
+
+            <div class="container" id='tickerListWrapper'>
+                <div class="ticker__list">
+                    Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9 Test-10 Test-11 Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9 Test-10 Test-11 Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9 Test-10 Test-11 Test-2 Test-3 Test-4 Test-5 Test-6
+                    Test-7 Test-8 Test-9 Test-10 Test-11 Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9 Test-10 Test-11 Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9 Test-10 Test-11 Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9
+                    Test-10 Test-11 Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9 Test-10 Test-11&nbsp
+                </div>
+            </div>
         </div>
         <div class="cases-section" id="cases">
             <div class="cases-section-header">
@@ -94,7 +114,6 @@
                     </h1>
                 </div>
                 <div class="cases-btn">
-                    <button>Hello</button>
                 </div>
             </div>
             <div class="carousel-container">
@@ -153,6 +172,19 @@
         window.onscroll = null;
         document.body.classList.remove('scroll-lock');
     }
+
+    (function($) {
+        var $tickerList = $('.ticker__list'),
+            $tickerListWrapper = $('#tickerListWrapper'),
+            tickerListWidth = $tickerList.width();
+
+        if (tickerListWidth > $tickerListWrapper.width()) {
+            $tickerList.css('animation-duration', tickerListWidth / 100 + 's');
+            $tickerList.addClass('animation');
+            $tickerList.clone().appendTo($tickerListWrapper);
+
+        }
+    })(jQuery);
 </script>
 
 </html>

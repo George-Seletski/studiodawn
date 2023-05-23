@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        .animation-sponsor-wrapper {
+            width: 100%;
+            grid-column-gap: 40px;
+            grid-row-gap: 40px;
+            background-color: rgba(0, 0, 0, 0);
+            border: 1px #000;
+            border-top-width: 20px;
+            border-bottom: 14px solid #000;
+            align-items: center;
+            display: flex;
+            position: relative;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+        }
+        
+        .flex-content {
+            justify-content: flex-start;
+            align-items: center;
+            display: flex;
+        }
+        
+        .animation-text {
+            color: #000;
+            text-transform: uppercase;
+            white-space: nowrap;
+            font-family: Oswald, sans-serif;
+            font-size: 160px;
+            font-weight: 300;
+            line-height: 150%;
+            animation: moveText 8s infinite;
+            animation-timing-function: linear;
+        }
+        
+        .animation-text.white-color-text {
+            color: #fff;
+        }
+        
+        @keyframes moveText {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            25% {
+                transform: translate3d(-25%, 0, 0);
+            }
+            50% {
+                transform: translate3d(-50%, 0, 0);
+            }
+            75% {
+                transform: translate3d(-75%, 0, 0);
+            }
+            100% {
+                transform: translate3d(-100%, 0, 0);
+            }
+        }
+        
+        @media screen and (max-width: 991px) {
+            .animation-text {
+                font-size: 140px;
+            }
+        }
+        
+        @media screen and (max-width: 767px) {
+            .animation-text {
+                font-size: 100px;
+            }
+        }
+        
+        @media screen and (max-width: 479px) {
+            .animation-text {
+                font-size: 80px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="animation-sponsor-wrapper">
+        <div class="flex-content">
+            <div class="animation-text">META <span class="gray-color">Digital Agency</span></div>
+        </div>
+        <div class="flex-content">
+            <div class="animation-text">META <span class="gray-color">Digital Agency</span></div>
+        </div>
+        <div class="flex-content">
+            <div class="animation-text">META <span class="gray-color">Digital Agency</span></div>
+        </div>
+    </div>
+</body>
+<script>
+    // Get all animation text elements
+    const animationTexts = document.querySelectorAll('.animation-text');
+
+    // Attach animation end event listener to each text element
+    animationTexts.forEach((text) => {
+        text.addEventListener('animationend', () => {
+            // Reset animation properties
+            text.style.animation = 'none';
+            void text.offsetWidth; // Trigger reflow
+            text.style.animation = 'moveText 8s infinite linear';
+        });
+    });
+</script>
+
+</html>

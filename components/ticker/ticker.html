@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Poppins', sans-serif;
+        overflow-x: hidden;
+    }
+    
+    #tickerListWrapper {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    
+    .ticker__list {
+        display: inline-block;
+        color: #000;
+        font-size: 4em;
+        font-weight: 900;
+        text-transform: uppercase;
+    }
+    
+    .animation {
+        animation: marquee 8s infinite;
+        animation-timing-function: linear;
+    }
+    
+    #tickerListWrapper:hover div {
+        animation-play-state: paused;
+    }
+    
+    @keyframes marquee {
+        from {
+            /*transform: translateX(0);*/
+            transform: translate3d(0, 0, 0);
+        }
+        to {
+            transform: translate3d(-100%, 0, 0);
+        }
+    }
+    
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .animation-paused {
+        animation-play-state: paused;
+    }
+</style>
+
+<body>
+    <div class="container" id='tickerListWrapper'>
+        <div class="ticker__list">
+            Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9 Test-10 Test-11 Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9 Test-10 Test-11 Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9 Test-10 Test-11 Test-2 Test-3 Test-4 Test-5 Test-6
+            Test-7 Test-8 Test-9 Test-10 Test-11 Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9 Test-10 Test-11 Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9 Test-10 Test-11 Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9 Test-10
+            Test-11 Test-2 Test-3 Test-4 Test-5 Test-6 Test-7 Test-8 Test-9 Test-10 Test-11&nbsp
+        </div>
+    </div>
+</body>
+<script>
+    (function($) {
+        var $tickerList = $('.ticker__list'),
+            $tickerListWrapper = $('#tickerListWrapper'),
+            tickerListWidth = $tickerList.width();
+
+        if (tickerListWidth > $tickerListWrapper.width()) {
+            $tickerList.css('animation-duration', tickerListWidth / 100 + 's');
+            $tickerList.addClass('animation');
+            $tickerList.clone().appendTo($tickerListWrapper);
+
+        }
+    })(jQuery);
+</script>
+
+</html>
