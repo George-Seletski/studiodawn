@@ -62,6 +62,12 @@
                     <a href="index.html" aria-current="page" class="header-logo-link w-nav-brand w--current">
                         <img src="" alt="STUDIODAWN" class="header-logo">
                     </a>
+                    <!--<div class="button-box-dark">
+
+                        <span class="button-content">contact us<span>
+                    
+                            </div>-->
+
                     <div class="hamburger-menu-wrapper w-nav-button">
                         <div class="hamburger-menu-bar-top"></div>
                         <div class="hamburger-menu-bar-bottom"></div>
@@ -185,6 +191,14 @@
 
         }
     })(jQuery);
+
+    const buttonBox = document.querySelector('.button-box-dark');
+    var clicked_contact_button_flag = 0;
+    buttonBox.addEventListener('click', function() {
+        buttonBox.classList.toggle('clicked');
+        clicked_contact_button_flag += 1;
+
+    });
 </script>
 
 </html>
