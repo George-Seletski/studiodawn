@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        *,
+        *:after,
+        *:before {
+            box-sizing: border-box;
+        }
+        
+        html {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizelegibility;
+        }
+        
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+        
+        body {
+            font-family: "Open Sans", sans-serif;
+            font-size: 100%;
+        }
+        
+        ul li {
+            list-style-type: none;
+        }
+        
+        .slider--teams {
+            position: relative;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            padding-top: 40px;
+            padding-bottom: 40px;
+            background-color: #BCB5B1;
+        }
+        
+        .slider--teams .slider--teams__team {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-card {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            background-color: #ffffff;
+            padding: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            z-index: 1;
+        }
+        
+        .cases {
+            height: 720px;
+        }
+        
+        #list {
+            display: flex;
+            justify-content: flex-start;
+            width: 600px;
+            gap: 60px;
+        }
+        
+        #list li {
+            text-align: center;
+        }
+        
+        #list li figure {
+            cursor: pointer;
+            opacity: 0.5;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            transition: transform 450ms cubic-bezier(0.445, 0.05, 0.55, 0.95), opacity 450ms ease-in-out;
+            transform: scale(0.7) translateZ(0px);
+            border: 1px solid;
+        }
+        
+        #list li figure:hover {
+            opacity: 0.8;
+            transform: scale(0.6) translateZ(0px);
+        }
+        
+        #list li figure:active {
+            opacity: 1;
+            transform: scale(0.7) translateZ(0px);
+        }
+        
+        #list li figure>div {
+            position: relative;
+            width: 600px;
+            height: 600px;
+        }
+        
+        #list li figure>div>div {
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .active {
+            opacity: 1 !important;
+            transform: scale(1) translateZ(0px) !important;
+        }
+        
+        .cf:before,
+        .cf:after {
+            content: " ";
+            display: table;
+        }
+        
+        .cf:after {
+            clear: both;
+        }
+        
+        .cf {
+            *zoom: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="cases">
+        <h1 class="header-card"></h1>
+        <div class="slider--teams">
+            <div class="slider--teams__team">
+                <ul id="list" class="cf"></ul>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    const casesArray = [
+        ['Case 1', '#F2F2F2', 'image1.jpg', 'https://example.com/case1'],
+        ['Case 2', '#BCB5B1', 'image2.jpg', 'https://example.com/case2'],
+        ['Case 3', '#667384', 'image3.jpg', 'https://example.com/case3'],
+        ['Case 4', '#4E8EBE', 'image4.jpg', 'https://example.com/case4'],
+        ['Case 5', '#C61A00', 'image5.jpg', 'https://example.com/case5']
+    ];
+
+    const listElement = document.getElementById('list');
+    const sliderTeams = document.getElementsByClassName('slider--teams');
+    const headerCard = document.querySelector('.header-card'); // Select the header-card element
+
+    casesArray.forEach(caseItem => {
+        const liElement = document.createElement('li');
+        const figureElement = document.createElement('figure');
+        const divElement = document.createElement('div');
+        const innerDivElement = document.createElement('div');
+
+        figureElement.appendChild(divElement);
+        divElement.appendChild(innerDivElement);
+        liElement.appendChild(figureElement);
+        listElement.appendChild(liElement);
+
+        innerDivElement.style.backgroundImage = `url(${caseItem[2]})`;
+        innerDivElement.style.backgroundColor = caseItem[1];
+
+        // Set the initial active class based on the condition
+        if (caseItem[0] === 'Case 2') {
+            figureElement.classList.add('active');
+        }
+    });
+
+    // Set the header-card content to the first value of the casesArray
+    headerCard.textContent = casesArray[0][0];
+
+    var sliderTeam = (function(document, $) {
+        'use strict';
+
+        var $sliderTeams = $('.slider--teams'),
+            $list = $('#list'),
+            $listItems = $('#list li'),
+            $nItems = $listItems.length,
+            $nView = 3,
+            $current = 0;
+
+        var _init = function() {
+            _initWidth();
+            _eventInit();
+        };
+
+        var _initWidth = function() {
+            $list.css({
+                'margin-left': '0',
+                'width': '100%',
+                'display': 'flex',
+
+            });
+            $listItems.css({
+                'flex': '0 0 ' + (70 / $nView) + '%',
+                'max-width': (100 / $nView) + '%'
+            });
+            $sliderTeams.css('opacity', 1);
+        };
+
+        var _eventInit = function() {
+            $.each($listItems, function(i) {
+                var $this = $(this);
+                $this.on('touchstart click', function(e) {
+                    e.preventDefault();
+                    _moveIt($this, i);
+                });
+            });
+        };
+
+        var _moveIt = function(obj, x) {
+            var n = x;
+
+            obj.find('figure').addClass('active');
+            $listItems.not(obj).find('figure').removeClass('active');
+
+            // Get the color of the clicked image
+            var color = obj.find('figure>div>div').css('background-color');
+
+            // Apply the color to the slider
+            $sliderTeams.css('background-color', color);
+
+            if (n == 1) {
+                $list.animate({
+                    marginLeft: '0%'
+                }, 1000, 'swing');
+
+            } else {
+                $list.animate({
+                    marginLeft: '-' + (114 / $nItems) * n + '%'
+                }, 1000, 'swing');
+            }
+
+            // Update the header-card content based on the selected case
+            headerCard.textContent = casesArray[n][0];
+        };
+
+        return {
+            init: _init
+        };
+    })(document, jQuery);
+
+    $(window).on('load', function() {
+        'use strict';
+        sliderTeam.init();
+    });
+</script>
+
+</html>
